@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+</head>
+<style>
+    .world {
+        width: 60vw;
+        height: 60vh;
+        background-color: yellow;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        perspective: 500px;
+    }
+
+    .card{ 
+        position: relative;
+        width: 100px;
+        height: 150px;
+        margin: 1em;
+
+        transition: 1s;
+        transform: rotateY(0deg);
+
+        transform-style: preserve-3d;
+        /* transform-origin: left; */
+    }
+
+    .world:hover .card-side-front{
+        transform: rotateY(180deg);
+    }
+
+    .world:hover .card-side-back{
+        transform: rotateY(360deg);
+    }
+
+    .card:not(:last-child){
+        margin-right: 1em;
+    }
+
+    .card-side{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 150px;
+        margin: -75px 0 0 -50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        transition: 1s;
+        transform: rotateY(0deg);
+
+        border-radius: 0.5em;
+        font-size: 1.5rem;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .card-side-front{
+        z-index: 1;
+        background-color: white;
+    }
+
+    .card-side-back{
+        transform: rotateY(180deg);
+        background-color: red;
+    }
+    
+</style>
+<body>
+    <div class="world">
+        <div class="card-side card-side-front">F</div>
+        <div class="card-side card-side-back">B</div>
+    </div>
+</body>
+</html>
