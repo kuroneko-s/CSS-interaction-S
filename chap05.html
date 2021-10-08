@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap.5</title>
+</head>
+ <style>
+     @keyframes moving{
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(80vw);
+        }
+    }
+
+    .stage{
+        position: relative;
+        overflow: hidden;
+        /*viewport width*/
+        /*viewport height*/
+        width: 98vw;
+        height: 87vh;
+        background-color: yellow;
+    }
+    .ilbuni{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        animation: moving linear infinite alternate;
+    }
+
+    .ilbuni.a{
+        left: 5%;
+        bottom: 5%;
+        background-image : url('./resources/chap5/ilbuni_0.png');
+        animation-duration: 3s;
+    }
+    .ilbuni.b{
+        left: 8%;
+        bottom: 3%;
+        background-image: url('./resources/chap5/ilbuni_1.png');
+        animation-duration: 5s;
+    }
+    .ilbuni.c{
+        left: 3%;
+        bottom: 10%;
+        background-image: url('./resources/chap5/ilbuni_2.png');
+        animation-duration: 8s;
+    }
+
+ </style>
+<body>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    (() => {
+        let ilbunis = document.querySelectorAll('.ilbuni')
+        const clickHandler = (e) => {
+            document.querySelector(".stage").removeChild(e.target)
+        }
+        for (const el of ilbunis) {
+            el.addEventListener("click", clickHandler)
+        }
+    })();
+</script>
+</html>
