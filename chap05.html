@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chap05</title>
+</head>
+<style>
+    @keyframes moving{
+        from{
+            transform: translate(0);
+        }
+
+        to{
+            transform: translateX(90vw)
+        }
+    }
+    .stage{
+        position: relative;
+        overflow: hidden;
+        width: 88vw;
+        height: 78vh;
+        background-color: yellow;
+    }
+
+    .ilbuni{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        animation: moving linear infinite alternate;
+    }
+
+    .ilbuni.a{
+        left: 8%;
+        bottom: 3%;
+        background-image: url(./resources/ilbuni_0.png);
+
+        animation-duration: 2s;
+    }
+    .ilbuni.b{
+        left: 8%;
+        bottom: 8%;
+        background-image: url(./resources/ilbuni_1.png);
+
+        animation-duration: 5s;
+
+    }
+    .ilbuni.c{
+        left: 3%;
+        bottom: 13%;
+        background-image: url(./resources/ilbuni_2.png);
+    
+        animation-duration: 7s;
+    }
+
+</style>
+<body>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
+    </div>
+</body>
+<script>
+    let stage = document.querySelector('.stage')
+    
+    const clickHandler = (e) => {
+        if (e.target != stage){
+            stage.removeChild(e.target)
+        }
+    }
+
+    stage.addEventListener('click', clickHandler)
+    
+</script>
+</html>
