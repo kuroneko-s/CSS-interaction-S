@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Chap.5</title>
 </head>
  <style>
@@ -26,17 +27,47 @@
         height: 87vh;
         background-color: yellow;
     }
+=======
+    <title>chap05</title>
+</head>
+<style>
+    @keyframes moving{
+        from{
+            transform: translate(0);
+        }
+
+        to{
+            transform: translateX(90vw)
+        }
+    }
+    .stage{
+        position: relative;
+        overflow: hidden;
+        width: 88vw;
+        height: 78vh;
+        background-color: yellow;
+    }
+
+>>>>>>> a669dbf3a6fe6db5500a92afe6d67c42c00892e3
     .ilbuni{
         position: absolute;
         width: 100px;
         height: 100px;
+<<<<<<< HEAD
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: contain;
+=======
+
+        background-repeat: no-repeat;
+        background-size: contain;
+
+>>>>>>> a669dbf3a6fe6db5500a92afe6d67c42c00892e3
         animation: moving linear infinite alternate;
     }
 
     .ilbuni.a{
+<<<<<<< HEAD
         left: 5%;
         bottom: 5%;
         background-image : url('./resources/chap5/ilbuni_0.png');
@@ -56,6 +87,31 @@
     }
 
  </style>
+=======
+        left: 8%;
+        bottom: 3%;
+        background-image: url(./resources/ilbuni_0.png);
+
+        animation-duration: 2s;
+    }
+    .ilbuni.b{
+        left: 8%;
+        bottom: 8%;
+        background-image: url(./resources/ilbuni_1.png);
+
+        animation-duration: 5s;
+
+    }
+    .ilbuni.c{
+        left: 3%;
+        bottom: 13%;
+        background-image: url(./resources/ilbuni_2.png);
+    
+        animation-duration: 7s;
+    }
+
+</style>
+>>>>>>> a669dbf3a6fe6db5500a92afe6d67c42c00892e3
 <body>
     <div class="stage">
         <div class="ilbuni a"></div>
@@ -63,6 +119,7 @@
         <div class="ilbuni c"></div>
     </div>
 </body>
+<<<<<<< HEAD
 
 <script type="text/javascript">
     (() => {
@@ -74,5 +131,18 @@
             el.addEventListener("click", clickHandler)
         }
     })();
+=======
+<script>
+    let stage = document.querySelector('.stage')
+    
+    const clickHandler = (e) => {
+        if (e.target != stage){
+            stage.removeChild(e.target)
+        }
+    }
+
+    stage.addEventListener('click', clickHandler)
+    
+>>>>>>> a669dbf3a6fe6db5500a92afe6d67c42c00892e3
 </script>
 </html>
