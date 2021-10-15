@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ball-ani {
+            0% {
+                transform: translate(0, 0);
+            }
+            
+            100% {
+                transform: translate(200px, 200px);
+            }
+        }
+
+        .ball{
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: -15px 0 0 -15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: red;
+            /*animation: ball-ani 1s 3 alternate forwards;*/
+        }
+
+        .ball.end{
+            border: 5px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+    <script>
+        const ballEl = document.querySelector('.ball')
+        
+        /*
+        window.addEventListener('click', (e) => {
+            console.log(e.clientX, e.clientY)
+            ballEl.style.transform = `
+                translate(${e.clientX}px, ${e.clientY}px)
+            `
+        })
+        // start도 있음
+        ballEl.addEventListener('transitionend', (e)=> {
+            console.log(e)
+            ballEl.style.backgroundColor = 'dodgerblue'
+        })
+        */
+
+        // start도 있음
+       ballEl.addEventListener('animationend', function(){
+            ballEl.classList.add("end")
+       })
+
+       ballEl.addEventListener('click', function(){
+            ballEl.style.animation = 'ball-ani 1s 3 forwards'
+       })
+       
+       ballEl.addEventListener('animationiteration', function () {
+           console.log('반복')
+       })
+    </script>
+</body>
+</html>

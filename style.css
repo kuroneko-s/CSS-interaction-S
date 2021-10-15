@@ -1,0 +1,101 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #555;
+  background-color: #fff000;
+  height: 500vw;
+}
+
+.world {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  perspective: 1000px;
+}
+
+/* 캐릭터와 벽이 있는 공간 */
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  transform-style: preserve-3d;
+}
+
+/* 벽들이 있는 공간 */
+.house {
+  width: 100vw;
+  height: 100vh;
+
+  transform: translateZ(-490vw);
+
+  transform-style: preserve-3d;
+}
+
+.wall {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wall .wall-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wall-title {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.wall-left {
+  /* left: -500vw; */
+  width: 1000vw;
+  /* transform-origin: left center; */
+  transform: rotateY(90deg) translateZ(-500vw);
+  background: #f8f8f8;
+}
+
+.wall-right {
+  /* left: -500vw; */
+  width: 1000vw;
+  /* transform-origin: left center; */
+  transform: rotateY(90deg) translateZ(-400vw);
+  background: #f8f8f8;
+}
+
+.wall-front-a {
+  transform: translateZ(300vw);
+}
+.wall-front-b {
+  transform: translateZ(50vw);
+}
+.wall-front-c {
+  transform: translateZ(-250vw);
+}
+.wall-front-d {
+  transform: translateZ(-500vw);
+}
+
+.progress-bar-con {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 5px;
+  background: #555;
+  z-index: 3;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: #00a8ff;
+}
